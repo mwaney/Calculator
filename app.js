@@ -1,6 +1,6 @@
 const display = document.getElementById("display");
 const buttons = document.querySelectorAll("button");
-// console.log(buttons);
+let modeText = document.querySelector(".modeText");
 
 buttons.forEach((item) => {
   item.onclick = () => {
@@ -20,12 +20,16 @@ buttons.forEach((item) => {
   };
 });
 
-const modeToggleBtn = document.querySelector(".mode-toggle");
+const modeToggleBtn = document.querySelector(".slider");
 const calculator = document.querySelector(".calculator");
-const toggleIcon = document.querySelector(".toggle-icon");
 let isDark = true;
+modeText.innerText = "Dark Mode";
 modeToggleBtn.onclick = () => {
   calculator.classList.toggle("dark");
+  modeText.classList.toggle("dark");
   modeToggleBtn.classList.toggle("active");
+  isDark
+    ? (modeText.innerText = "Light Mode")
+    : (modeText.innerText = "Dark Mode");
   isDark = !isDark;
 };
